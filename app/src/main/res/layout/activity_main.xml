@@ -8,11 +8,20 @@
     tools:context=".MainActivity">
 
     <TextView
+      android:id="@+id/roll_result"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:text="1"
+      android:layout_marginBottom="10sp"
+    android:text="Let's Roll"
         android:textSize="30sp"/>
+
+    <ImageView
+      android:id="@+id/dice_image"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:src="@drawable/dice_1"/>
 
     <Button
       android:id="@+id/roll_button"
