@@ -3,6 +3,7 @@ package com.example.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import kotlin.random.Random
@@ -16,13 +17,32 @@ class MainActivity : AppCompatActivity() {
 
 
         rollButton.setOnClickListener {
-            Toast.makeText(this, "Click !", Toast.LENGTH_SHORT).show()
+            
            rollDice()
         }
     }
 
     private fun rollDice() {
         val rollResult: TextView = findViewById(R.id.roll_result)
-            rollResult.text = Random.nextInt(1, 7).toString()
+        val randomNumber = Random.nextInt(1, 7).toString()
+        rollResult.text = randomNumber
+        makeToast(randomNumber)
+        changeImageView(randomNumber)
+    }
+    
+    private fun makeToast(randomNumber: String) {
+        Toast.makeText(this, "You roll $randomNumber", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun changeImageView(randomNumber: String) {
+        var diceImage: ImageView = findViewById(R.id.dice_image)
+        when (randomNumber) {
+            "1" -> diceImage.setImageResource(R.drawable.dice_1)
+            "2" -> diceImage.setImageResource(R.drawable.dice_2)
+            "3" -> diceImage.setImageResource(R.drawable.dice_3)
+            "4" -> diceImage.setImageResource(R.drawable.dice_4)
+            "5" -> diceImage.setImageResource(R.drawable.dice_5)
+            else -> diceImage.setImageResource(R.drawable.dice_6)
+        }
     }
 }
